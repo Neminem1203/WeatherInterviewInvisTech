@@ -4,7 +4,9 @@ const fetch = require("node-fetch")
 const getWeatherForLocations = locationsArray => {
   try {
     const date = new Date()
-    const time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
+    const time = date.getHours() + ":" + 
+                (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) + ":" + 
+                (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds())
     console.log(`Time: ${time}`)
     for ( locationInd in locationsArray) {
       let location = locationsArray[locationInd]
